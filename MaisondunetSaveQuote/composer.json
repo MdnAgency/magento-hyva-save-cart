@@ -1,0 +1,21 @@
+{
+  "name": "hyva/module-maisondunet-save-quote",
+  "version": "1.0.0",
+  "description": "N/A",
+  "type": "magento2-module",
+  "require": {
+    "magento/framework": "*",
+    "maisondunet/module-save-quote": "1.0.*"
+  },
+  "license": [
+    "Proprietary"
+  ],
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Hyva\\MaisondunetSaveQuote\\": ""
+    }
+  }
+}
