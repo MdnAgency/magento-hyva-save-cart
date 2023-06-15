@@ -5,58 +5,78 @@
 /** @var \Magento\Framework\Data\Helper\PostHelper $dataPosthelper */
 $dataPosthelper = $this->helper(\Magento\Framework\Data\Helper\PostHelper::class);
 ?>
-<h2><?= __("List of your saved carts") ?></h2>
+<h2 class="block title text-primary font-semibold text-lg mb-3"><?= __("List of your saved carts") ?></h2>
 
-<div class="card grid grid-cols-5 lg:grid-cols-5 mb-4" x-data="mdnSavedCartList()">
-    <div class="text-sm text-secondary p-2"><?=__("Name")?></div>
-    <div class="text-sm text-secondary p-2"><?=__("Description")?></div>
-    <div class="text-sm text-secondary p-2"><?=__("Number of Items")?></div>
-    <div class="text-sm text-secondary p-2"><?=__("Total price")?></div>
-    <div class="text-sm text-secondary p-2"><?=__("Action")?></div>
+<div class="card grid grid-cols-5 lg:grid-cols-5 mb-4 " x-data="mdnSavedCartList()">
+    <div class="text-base text-secondary p-2 flex justify-start"><?= __("Name") ?></div>
+    <div class="text-base text-secondary p-2 flex justify-start"><?= __("Description") ?></div>
+    <div class="text-base text-secondary p-2 flex justify-center"><?= __("Number of Items") ?></div>
+    <div class="text-base text-secondary p-2 flex justify-center"><?= __("Total price") ?></div>
+    <div class="text-base text-secondary p-2 flex justify-center"><?= __("Action") ?></div>
 
     <?php
     $result = $block->getCustomerSavedCartList();
     if ($result === null || $result->getTotalCount() === 0): ?>
-        <p><?=__("There is no saved cart")?></p>
-    <?php else:?>
+        <p><?= __("There is no saved cart") ?></p>
+    <?php else: ?>
         <?php $i = 0; ?>
-    <?php foreach ($result->getItems() as $item): ?>
-            <?php $i++?>
+        <?php foreach ($result->getItems() as $item): ?>
+            <?php $i++ ?>
 
-    <div class="p-2 flex items-center  <?= $i % 2 === 0 ? '' : ' bg-container-darker' ?>"><?=$item->getName()?></div>
-    <div class="p-2 flex items-center  <?= $i % 2 === 0 ? '' : ' bg-container-darker' ?>"><?=$item->getDescription()?></div>
-    <div class="p-2 flex items-center  <?= $i % 2 === 0 ? '' : ' bg-container-darker' ?>"><?=$item->getItemsCount()?></div>
-    <div class="p-2 flex items-center  <?= $i % 2 === 0 ? '' : ' bg-container-darker' ?>"><?=$block->getFormatedPrice($item->getGrandTotal())?></div>
-    <div class="p-2 flex items-center  <?= $i % 2 === 0 ? '' : ' bg-container-darker' ?> block">
-        <input type="hidden" value="<?= $item->getMaskedId() ?>" name="quote_id">
-        <a class="inline-block text-sm underline text-secondary-darker p-2" href="#" @click="restoreToCart('<?= $item->getMaskedId() ?>')" >
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="24" height="24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
-            </svg>
-        </a>
-        <input type="hidden" value="<?= $item->getMaskedId() ?>" name="quote_id">
-        <a class="inline-block text-sm underline text-secondary-darker p-2" href=<?= $escaper->escapeHtmlAttr($block->getAddViewProductDetail($item->getMaskedId())) ?>>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="24" height="24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
-            </svg></a>
-        <input type="hidden" value="<?= $item->getMaskedId() ?>" name="entity_id">
-        <a class="inline-block text-sm underline text-secondary-darker p-2" href="#"
-           data-post="<?= $escaper->escapeHtmlAttr($block->getAddDeletePostData($item)) ?>">
-            <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                <g transform="translate(-184 -151)">
-                    <path d="M21510.873,4793a2.906,2.906,0,0,1-2.582-3.142V4774.9h-.283a1.01,1.01,0,1,1,0-2.02h2.865v-.926a2.952,2.952,0,0,1,2.943-2.954H21519a2.952,2.952,0,0,1,2.943,2.954v.926h2.875a1.01,1.01,0,1,1,0,2.02h-.283v14.958a2.907,2.907,0,0,1-2.592,3.142Zm-.564-3.064c0,.566.328,1.044.725,1.044h10.758c.393,0,.721-.479.721-1.044V4774.9h-12.2Zm2.582-17.982v.926h7.033v-.926a.92.92,0,0,0-.926-.935h-5.182A.921.921,0,0,0,21512.891,4771.953Zm4.447,14.863v-7.753a1.011,1.011,0,1,1,2.021,0v7.753a1.011,1.011,0,1,1-2.021,0Zm-3.879,0v-7.753a1.009,1.009,0,1,1,2.018,0v7.753a1.009,1.009,0,1,1-2.018,0Z" transform="translate(-21320.41 -4617.999)"></path>
-                </g>
-            </svg>
-        </a>
-    </div>
-    <?php endforeach;
+            <div
+                class="p-2 flex items-center  flex justify-start <?= $i % 2 === 0 ? '' : ' bg-container-darker' ?>"><?= $item->getName() ?></div>
+            <div
+                class="p-2 flex items-center  flex justify-start <?= $i % 2 === 0 ? '' : ' bg-container-darker' ?>"><?= $item->getDescription() ?></div>
+            <div
+                class="p-2 flex items-center  flex justify-center <?= $i % 2 === 0 ? '' : ' bg-container-darker' ?>"><?= $item->getItemsCount() ?></div>
+            <div
+                class="p-2 flex items-center  flex justify-center <?= $i % 2 === 0 ? '' : ' bg-container-darker' ?>"><?= $block->getFormatedPrice($item->getGrandTotal()) ?></div>
+            <div
+                class="p-2 flex items-center  flex justify-center <?= $i % 2 === 0 ? '' : ' bg-container-darker' ?> block">
+
+                <a class="inline-block text-sm underline text-secondary-darker p-2" href="#"
+                   :class="{'opacity-50': loading}"
+                   @click="restoreToCart('<?= $item->getMaskedId() ?>')">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                         width="24" height="24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                    </svg>
+                </a>
+
+                <a class="inline-block text-sm underline text-secondary-darker p-2"
+                   :class="{'opacity-50': loading}"
+                   href=<?= $escaper->escapeHtmlAttr($block->getAddViewProductDetail($item->getMaskedId())) ?>>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                         width="24" height="24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                    </svg>
+                </a>
+
+                <a class="inline-block text-sm underline text-secondary-darker p-2" href="#"
+                   :class="{'opacity-50': loading}"
+                   @click="deleteCart('<?= $item->getMaskedId() ?>')">
+                    <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                         viewBox="0 0 24 24">
+                        <g transform="translate(-184 -151)">
+                            <path
+                                d="M21510.873,4793a2.906,2.906,0,0,1-2.582-3.142V4774.9h-.283a1.01,1.01,0,1,1,0-2.02h2.865v-.926a2.952,2.952,0,0,1,2.943-2.954H21519a2.952,2.952,0,0,1,2.943,2.954v.926h2.875a1.01,1.01,0,1,1,0,2.02h-.283v14.958a2.907,2.907,0,0,1-2.592,3.142Zm-.564-3.064c0,.566.328,1.044.725,1.044h10.758c.393,0,.721-.479.721-1.044V4774.9h-12.2Zm2.582-17.982v.926h7.033v-.926a.92.92,0,0,0-.926-.935h-5.182A.921.921,0,0,0,21512.891,4771.953Zm4.447,14.863v-7.753a1.011,1.011,0,1,1,2.021,0v7.753a1.011,1.011,0,1,1-2.021,0Zm-3.879,0v-7.753a1.009,1.009,0,1,1,2.018,0v7.753a1.009,1.009,0,1,1-2.018,0Z"
+                                transform="translate(-21320.41 -4617.999)"></path>
+                        </g>
+                    </svg>
+                </a>
+            </div>
+        <?php endforeach;
     endif; ?>
 </div>
 
 <script type="application/javascript">
 
     const restoreCartUrl = "<?= $escaper->escapeUrl($block->getUrl("mdnsavecart/customer/switchcart")) ?>";
+    const deleteCartUrl = "<?= $escaper->escapeUrl($block->getUrl("mdnsavecart/customer/delete")) ?>";
 
     function mdnSavedCartList(){
 
@@ -64,16 +84,35 @@ $dataPosthelper = $this->helper(\Magento\Framework\Data\Helper\PostHelper::class
             loading: false,
             async restoreToCart(cartId) {
                 this.loading = true;
+                let formData = new FormData();
+                formData.append("quote_id", cartId);
+                formData.append("form_key", hyva.getFormKey());
                 const res = await fetch(
-                    restoreCartUrl + 'quote_id/' + cartId + '?form_key=' + hyva.getFormKey(),
+                    restoreCartUrl,
                     {
                         method: 'post',
+                        body: formData
                     }
                 );
+                console.log(res);
                 if(res.redirected === true){
                     window.location = res.url;
                 }
             },
+            async deleteCart(cartId) {
+                this.loading = true;
+                let formData = new FormData();
+                formData.append("entity_id", cartId);
+                formData.append("form_key", hyva.getFormKey());
+                await fetch(
+                    deleteCartUrl,
+                    {
+                        method:'post',
+                        body: formData
+                    }
+                );
+                window.location.reload();
+            }
         };
     }
 </script>

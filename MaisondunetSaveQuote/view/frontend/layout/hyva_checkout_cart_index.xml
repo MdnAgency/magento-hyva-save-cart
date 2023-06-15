@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="mdnsave_cart_item_renderers.xml"/>
+    <update handle="hyva_modal"/>
+    <body>
+        <referenceContainer name="checkout.cart.form.before">
+            <block class="Maisondunet\SaveQuote\Block\SaveQuote"
+                   template="Hyva_MaisondunetSaveQuote::saveQuote.phtml"
+                   name="mdn.savequote.block"
+            >
+                <block class="Maisondunet\SaveQuote\Block\PopupForm"
+                       name="mdn.savequote.block.popup.form"
+                       as="mdn_popup_form_block"
+                       template="Hyva_MaisondunetSaveQuote::popupForm.phtml"
+                >
+                    <container name="mdn.savequote.block.popup.form.additional" as="popup_form_additional_field" />
+                </block>
+
+            </block>
+        </referenceContainer>
+    </body>
+</page>
