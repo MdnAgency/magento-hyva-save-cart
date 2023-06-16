@@ -13,6 +13,7 @@
             <block class="Maisondunet\SaveQuote\Block\SaveQuote"
                    template="Hyva_MaisondunetSaveQuote::saveQuote.phtml"
                    name="mdn.savequote.block"
+                   ifconfig="checkout/mdn_save_cart/enable_save_cart"
             >
                 <block class="Maisondunet\SaveQuote\Block\PopupForm"
                        name="mdn.savequote.block.popup.form"
