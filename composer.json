@@ -1,6 +1,6 @@
 {
   "name": "hyva/module-maisondunet-save-quote",
-  "description": "Hyva Theme Compatibility module for maisondunet/module-save-cart",
+  "description": "Hyva Theme Compatibility module for maisondunet/module-save-quote",
   "type": "magento2-module",
   "require": {
     "magento/framework": "*",
