@@ -1,14 +1,13 @@
 {
   "name": "hyva/module-maisondunet-save-quote",
-  "version": "1.0.0",
-  "description": "Hyva Theme Compatibility module for maisondunet/module-save-quote",
+  "description": "Hyva Theme Compatibility module for maisondunet/module-save-cart",
   "type": "magento2-module",
   "require": {
     "magento/framework": "*",
     "maisondunet/module-save-quote": "1.0.*"
   },
   "license": [
-    "Proprietary"
+      "OSL-3.0"
   ],
   "autoload": {
     "files": [
