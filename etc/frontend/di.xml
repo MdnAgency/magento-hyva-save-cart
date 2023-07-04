@@ -6,7 +6,7 @@
             <argument name="compatModules" xsi:type="array">
                 <item name="hyva-magento2-maisondunet-save-quote" xsi:type="array">
                     <item name="original_module" xsi:type="string">Maisondunet_SaveQuote</item>
-                    <item name="compat_module" xsi:type="string">Hyva_MaisondunetSaveQuote</item>
+                    <item name="compat_module" xsi:type="string">Maisondunet_HyvaSaveQuote</item>
                 </item>
             </argument>
         </arguments>

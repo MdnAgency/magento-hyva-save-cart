@@ -1,5 +1,5 @@
 {
-    "name": "maisondunet/hyva-module-save-quote",
+    "name": "maisondunet/hyva-save-quote",
     "description": "Hyva Theme Compatibility module for maisondunet/module-save-quote",
     "type": "magento2-module",
     "require": {

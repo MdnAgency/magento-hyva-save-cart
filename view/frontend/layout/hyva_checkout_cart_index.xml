@@ -11,14 +11,14 @@
     <body>
         <referenceContainer name="checkout.cart.form.before">
             <block class="Maisondunet\SaveQuote\Block\SaveQuote"
-                   template="Hyva_MaisondunetSaveQuote::saveQuote.phtml"
+                   template="Maisondunet_HyvaSaveQuote::saveQuote.phtml"
                    name="mdn.savequote.block"
                    ifconfig="checkout/mdn_save_cart/enable_save_cart"
             >
                 <block class="Maisondunet\SaveQuote\Block\PopupForm"
                        name="mdn.savequote.block.popup.form"
                        as="mdn_popup_form_block"
-                       template="Hyva_MaisondunetSaveQuote::popupForm.phtml"
+                       template="Maisondunet_HyvaSaveQuote::popupForm.phtml"
                 >
                     <container name="mdn.savequote.block.popup.form.additional" as="popup_form_additional_field" />
                 </block>

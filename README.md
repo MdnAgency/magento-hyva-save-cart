@@ -18,11 +18,11 @@ This module has been tested with Magento 2.4.5
 ## Installation
 To Install the  Hyva compatibility module:
 ```
-composer require hyva/module-maisondunet-save-quote
+composer require maisondunet/hyva-save-quote
 ```
 To enable the module:
 ```
-bin/magento module:enable Hyva_MaisondunetSaveQuote
+bin/magento module:enable Maisondunet_HyvaSaveQuote
 ```  
 ---
 
