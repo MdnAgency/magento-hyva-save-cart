@@ -1,20 +1,21 @@
 {
-  "name": "hyva/module-maisondunet-save-quote",
-  "description": "Hyva Theme Compatibility module for maisondunet/module-save-quote",
-  "type": "magento2-module",
-  "require": {
-    "magento/framework": "*",
-    "maisondunet/module-save-quote": "~v1.1"
-  },
-  "license": [
-      "OSL-3.0"
-  ],
-  "autoload": {
-    "files": [
-      "registration.php"
+    "name": "maisondunet/hyva-module-save-quote",
+    "description": "Hyva Theme Compatibility module for maisondunet/module-save-quote",
+    "type": "magento2-module",
+    "require": {
+        "magento/framework": "*",
+        "maisondunet/module-save-quote": "~v1.1",
+        "hyva-themes/magento2-compat-module-fallback": "*"
+    },
+    "license": [
+        "OSL-3.0"
     ],
-    "psr-4": {
-      "Hyva\\MaisondunetSaveQuote\\": ""
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Hyva\\MaisondunetSaveQuote\\": ""
+        }
     }
-  }
 }
