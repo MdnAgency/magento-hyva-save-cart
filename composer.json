@@ -4,7 +4,7 @@
   "type": "magento2-module",
   "require": {
     "magento/framework": "*",
-    "maisondunet/module-save-quote": "1.0.*"
+    "maisondunet/module-save-quote": "~v1.1"
   },
   "license": [
       "OSL-3.0"
