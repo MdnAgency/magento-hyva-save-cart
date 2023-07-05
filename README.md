@@ -10,11 +10,11 @@ Users can manage their saved cart in the user account section.
 
 The module can be enable or disable via admin magento admin panel  
 
----  
+ 
 ## Compatibility
 This module has been tested with Magento 2.4.5
 
----
+
 ## Installation
 To Install the  Hyva compatibility module:
 ```
@@ -24,13 +24,13 @@ To enable the module:
 ```
 bin/magento module:enable Maisondunet_HyvaSaveQuote
 ```  
----
+
 
 ## Module configuration
 Module configuration is located at:  
 Stores > Configuration > Sales > Checkout > Save Cart
 
----
+
 ## How it works
 
 The user selects items and adds them to the shopping cart.  
@@ -43,6 +43,12 @@ When user save cart, a new empty cart is created for current cart.
 
 User can find his saved cart in his account section by clicking on "My Saved Carts"
 
+Easily manage your carts from your cart list. Add cart to current one, view product details or delete saved cart.
+
+
 ### Merge Strategy
 
 User can add a saved cart in his current cart. If the current cart contains items, the module merges the two carts in the current cart.  
+
+## Who are we ?
+If you want to discover the [Mdn-Agency](https://maisondunet.com/)
