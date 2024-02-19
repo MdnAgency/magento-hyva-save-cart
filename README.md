@@ -1,3 +1,6 @@
+# DEPRECATED 
+This hyva compatibility layer is not required anymore for [magento-save-cart](https://github.com/MdnAgency/magento-save-cart) extension since version 1.1.8
+
 # Hyva compatibility module for Magento2 Save Cart module  
 
 This Open-Source module allows users to save their cart with a name and description.  
